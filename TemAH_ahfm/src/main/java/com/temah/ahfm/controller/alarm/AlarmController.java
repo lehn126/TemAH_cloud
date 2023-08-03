@@ -32,7 +32,7 @@ public class AlarmController extends BaseController<Alarm, Integer> {
                                @RequestParam(name="pageSize",required=false) Integer pageSize,
                                HttpServletRequest request) {
         Map<String, Object> params = new HashMap<>();
-        setPageWithSort(params,sortBy ,sortOrder,pageIndex, pageSize);
+        setPageWithSort(params,sortBy ,sortOrder,pageIndex, pageSize, request);
         PagingResult pr = service.findByCriteria(params);
         return RestResult.success(pr);
     }

@@ -1,5 +1,7 @@
 package com.temah.ahfm.common.web;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -11,30 +13,32 @@ public class BaseController<T, ID extends Serializable> {
         this.service = service;
     }
 
-    protected void setPage(Map<String,Object> params, Integer pageIndex, Integer pageSize) {
-        if(pageSize != null){
+    protected void setPage(Map<String, Object> params, Integer pageIndex, Integer pageSize,
+                           HttpServletRequest request) {
+        if (pageSize != null) {
             params.put("pageSize", pageSize);
-        }else{
+        } else {
             params.put("pageSize", Integer.MAX_VALUE);
         }
-        if(pageIndex != null){
+        if (pageIndex != null) {
             params.put("pageIndex", pageIndex);
         }
     }
 
-    protected void setPageWithSort(Map<String,Object> params,String sortBy,String sortOrder,Integer pageIndex,Integer pageSize) {
-        if(sortBy != null && !sortBy.isEmpty()) {
+    protected void setPageWithSort(Map<String, Object> params, String sortBy, String sortOrder,
+                                   Integer pageIndex, Integer pageSize, HttpServletRequest request) {
+        if (sortBy != null && !sortBy.isEmpty()) {
             params.put("sortBy", sortBy);
         }
-        if(sortOrder != null && !sortOrder.isEmpty()) {
+        if (sortOrder != null && !sortOrder.isEmpty()) {
             params.put("sortOrder", sortOrder);
         }
-        if(pageSize != null){
+        if (pageSize != null) {
             params.put("pageSize", pageSize);
-        }else{
+        } else {
             params.put("pageSize", Integer.MAX_VALUE);
         }
-        if(pageIndex != null){
+        if (pageIndex != null) {
             params.put("pageIndex", pageIndex);
         }
     }
