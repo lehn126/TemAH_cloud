@@ -16,11 +16,11 @@
     </modules>
 
     <groupId>com.temah</groupId>
-    <artifactId>TemAH_clould</artifactId>
+    <artifactId>TemAH_cloud</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-    <name>TemAH_clould</name>
-    <description>TemAH_clould</description>
+    <name>TemAH_cloud</name>
+    <description>TemAH_cloud</description>
     <properties>
         <java.version>11</java.version>
         <revision>0.0.1-SNAPSHOT</revision>
