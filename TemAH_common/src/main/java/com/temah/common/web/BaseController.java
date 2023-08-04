@@ -1,7 +1,6 @@
-package com.temah.ahfm.common.web;
+package com.temah.common.web;
 
-import jakarta.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Map;
 

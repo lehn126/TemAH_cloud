@@ -1,7 +1,7 @@
-package com.temah.ahfm.common.web;
+package com.temah.common.web;
 
-import com.temah.ahfm.common.constant.MsgConstant;
-import com.temah.ahfm.common.page.PagingResult;
+import com.temah.common.constant.MsgConstant;
+import com.temah.common.page.PagingResult;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
