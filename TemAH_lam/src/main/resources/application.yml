@@ -24,7 +24,9 @@ spring:
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
-  mapper-locations: classpath:mapper/*.xml,classpath:mapper/**/*.xml
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath:mapper/**/*.xml
   type-aliases-package: com.temah.lam.model
 
 management: # actuator打开SpringBoot Admin使用的监控端点
