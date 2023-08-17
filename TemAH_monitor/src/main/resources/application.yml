@@ -8,6 +8,8 @@ spring:
     user:
       name: "admin"
       password: "admin"
+  thymeleaf: # 去掉启动模板检查WARN
+    check-template-location: false
   boot: # 不显示admin-server的监控信息
     admin:
       discovery:

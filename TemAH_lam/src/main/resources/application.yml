@@ -13,14 +13,6 @@ spring:
     url: jdbc:mysql://192.168.2.105:3306/test
     username: root
     password: 123456
-  boot:
-    admin:
-      client:
-        url: http://localhost:9010 # Spring Boot Admin Server URL用于注册
-        instance:
-          service-host-type: ip # 使用ip注册进来
-        username: admin # Spring Boot Admin Server 注册使用的账户密码
-        password: admin
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
@@ -43,9 +35,12 @@ management: # actuator打开SpringBoot Admin使用的监控端点
 
 lam:
   push:
-    restful:
+    address: "temah.ahfm"
+    feign:
       enable: true
-      uri: http://127.0.0.1:8001/alarm/new
+    restful:
+      enable: false
+      uri: http://${lam.push.address}/alarm/new
 
 # 自定义eureka服务器信息
 eureka-server:
