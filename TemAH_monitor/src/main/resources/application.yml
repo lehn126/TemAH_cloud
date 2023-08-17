@@ -1,0 +1,33 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: temah.monitor
+  security: # 配置登录用户名和密码
+    user:
+      name: "admin"
+      password: "admin"
+  boot: # 不显示admin-server的监控信息
+    admin:
+      discovery:
+        ignored-services: ${spring.application.name}
+
+# 自定义eureka服务器信息
+eureka-server:
+  hostname: localhost
+  port: 7001
+
+eureka:
+  instance:
+    # 服务主机名称
+    # hostname: localhost
+    # 是否优先使用ip来作为主机名
+    prefer-ip-address: true
+  client:
+    # 是否注册到eureka服务器
+    register-with-eureka: true
+    # 是否从eureka服务器拉取已注册服务
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka-server.hostname}:${eureka-server.port}/eureka

@@ -12,7 +12,11 @@
     <modules>
         <module>TemAH_eureka_server</module>
         <module>TemAH_common</module>
+		<module>TemAH_common_redis</module>
+		<module>TemAH_demo_jwt</module>
         <module>TemAH_ahfm</module>
+		<module>TemAH_lam</module>
+		<module>TemAH_monitor</module>
     </modules>
 
     <groupId>com.temah</groupId>
@@ -23,12 +27,64 @@
     <description>TemAH_cloud</description>
     <properties>
         <java.version>1.8</java.version>
+
+		<TemAH_common.version>0.0.1-SNAPSHOT</TemAH_common.version>
+		<TemAH_common_redis.version>0.0.1-SNAPSHOT</TemAH_common_redis.version>
+
+		<spring-boot-admin.version>2.7.10</spring-boot-admin.version>
+		<mybatis.version>2.3.1</mybatis.version>
+		<java-jwt.version>4.4.0</java-jwt.version>
+		<jsch.version>0.1.55</jsch.version>
+
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 		<spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
     </properties>
 	
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.temah</groupId>
+				<artifactId>TemAH_common</artifactId>
+				<version>${TemAH_common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.temah</groupId>
+				<artifactId>TemAH_common_redis</artifactId>
+				<version>${TemAH_common_redis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter-test</artifactId>
+				<version>${mybatis.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${java-jwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>${jsch.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
