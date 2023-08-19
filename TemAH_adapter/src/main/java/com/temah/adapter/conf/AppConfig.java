@@ -1,6 +1,7 @@
-package com.temah.lam.conf;
+package com.temah.adapter.conf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.temah.adapter.mapper.AlarmMapper;
 import com.temah.common.alarm.dispatcher.AlarmDispatcher;
 import com.temah.common.http.RestTemplateUtils;
 import com.temah.common.json.CustomJacksonObjectMapper;
@@ -34,5 +35,10 @@ public class AppConfig {
         ObjectMapper objectMapper = new CustomJacksonObjectMapper();
         RestTemplateUtils restTemplateUtils = new RestTemplateUtils(restTemplate());
         return new AlarmDispatcher(objectMapper, restTemplateUtils, kafkaProducer);
+    }
+
+    @Bean
+    public AlarmMapper alarmMapper() {
+        return new AlarmMapper();
     }
 }

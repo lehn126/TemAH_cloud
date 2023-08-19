@@ -1,4 +1,4 @@
-package com.temah.lam.feign;
+package com.temah.adapter.feign;
 
 import com.temah.common.web.RestResult;
 import org.springframework.cloud.openfeign.FeignClient;

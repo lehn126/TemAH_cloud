@@ -1,26 +1,9 @@
 server:
-  port: 8040
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
+  port: 8050
 
 spring:
   application:
-    name: temah.lam
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.2.105:3306/test
-    username: root
-    password: 123456
-#  boot:
-#    admin:
-#      client:
-#        url: http://localhost:9010 # Spring Boot Admin Server URL用于注册
-#        instance:
-#          service-host-type: ip # 使用ip注册进来
-#        username: admin # Spring Boot Admin Server 注册使用的账户密码
-#        password: admin
+    name: temah.adapter
   kafka:
     bootstrap-servers: 192.168.2.105:9092,192.168.2.105:9093,192.168.2.105:9094 # kafka集群信息
     producer: # 生产者配置
@@ -54,13 +37,6 @@ spring:
       # MANUAL_IMMEDIATE
       ack-mode: manual_immediate
 
-mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
-  mapper-locations:
-    - classpath:mapper/*.xml
-    - classpath:mapper/**/*.xml
-  type-aliases-package: com.temah.lam.model
-
 management: # actuator打开SpringBoot Admin使用的监控端点
   endpoint:
     health:
@@ -74,16 +50,17 @@ management: # actuator打开SpringBoot Admin使用的监控端点
       enabled: true # 启用env信息
 
 alarm:
-    consumer:
-      address: "temah.ahfm" # 最终告警消费者AHFM的地址
-      restful:
-        enable: false
-        uri: http://${alarm.consumer.address}/alarm/new
-      kafka: # 发送告警到Kafka时才需要配
-        enable: true
-        topic: topic_alarm # 发送告警到Kafka使用的topic
-      feign:
-        enable: false
+  adapter: # 只有从Kafka收消息的adapter端点才需要配
+    kafka:
+      topic: topic_alarm # 接收告警使用的topic
+      group: group_alarm # 接收消息使用的group
+  consumer:
+    address: "temah.ahfm" # AHFM的地址
+    restful:
+      enable: false
+      uri: http://${alarm.consumer.address}/alarm/new
+    feign:
+      enable: true
 
 # 自定义eureka服务器信息
 eureka-server:
@@ -96,9 +73,9 @@ eureka:
     # hostname: localhost
     # 是否优先使用ip来作为主机名
     prefer-ip-address: true
-#    metadata-map:
-#      user.name: "admin"
-#      user.password: "admin"
+  #    metadata-map:
+  #      user.name: "admin"
+  #      user.password: "admin"
   client:
     # 是否注册到eureka服务器
     register-with-eureka: true

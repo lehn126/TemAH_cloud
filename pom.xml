@@ -13,10 +13,13 @@
         <module>TemAH_eureka_server</module>
         <module>TemAH_common</module>
 		<module>TemAH_common_redis</module>
+		<module>TemAH_common_kafka</module>
+		<module>TemAH_common_alarm</module>
 		<module>TemAH_demo_jwt</module>
         <module>TemAH_ahfm</module>
 		<module>TemAH_lam</module>
 		<module>TemAH_monitor</module>
+		<module>TemAH_adapter</module>
     </modules>
 
     <groupId>com.temah</groupId>
@@ -30,11 +33,14 @@
 
 		<TemAH_common.version>0.0.1-SNAPSHOT</TemAH_common.version>
 		<TemAH_common_redis.version>0.0.1-SNAPSHOT</TemAH_common_redis.version>
+		<TemAH_common_kafka.version>0.0.1-SNAPSHOT</TemAH_common_kafka.version>
+		<TemAH_common_alarm.version>0.0.1-SNAPSHOT</TemAH_common_alarm.version>
 
 		<spring-boot-admin.version>2.7.10</spring-boot-admin.version>
 		<mybatis.version>2.3.1</mybatis.version>
 		<java-jwt.version>4.4.0</java-jwt.version>
 		<jsch.version>0.1.55</jsch.version>
+		<spring-kafka.version>2.9.10</spring-kafka.version>
 
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 		<spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
@@ -51,6 +57,16 @@
 				<groupId>com.temah</groupId>
 				<artifactId>TemAH_common_redis</artifactId>
 				<version>${TemAH_common_redis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.temah</groupId>
+				<artifactId>TemAH_common_kafka</artifactId>
+				<version>${TemAH_common_kafka.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.temah</groupId>
+				<artifactId>TemAH_common_alarm</artifactId>
+				<version>${TemAH_common_alarm.version}</version>
 			</dependency>
 
 			<dependency>
